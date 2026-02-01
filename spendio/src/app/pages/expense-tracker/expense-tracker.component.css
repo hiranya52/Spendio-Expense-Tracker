@@ -1,3 +1,28 @@
+:root {
+    --primary: #1a3a2e;
+    --primary-light: #c6ff8e;
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text-main: #1a1a1a;
+    --success: #10b981;
+    --danger: #ef4444;
+    --pending: #f59e0b;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body { 
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e9 100%);
+    color: var(--text-main); 
+    padding: 20px;
+    min-height: 100vh;
+}
+
 header {
   background-color: #f5f5f5;
   padding: 20px 60px;
@@ -80,4 +105,47 @@ nav {
   nav {
     flex-wrap: wrap;
   }
+}
+
+
+ /* Header Stats */
+.header { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px; 
+    margin: 120px auto 30px;
+    justify-items: center;   /* center cards horizontally */
+    max-width: 1200px;
+}
+
+/* Stat Card */
+.stat-box { 
+    background: var(--card); 
+    width: 100%;              /* responsive */
+    max-width: 400px;         /* keeps nice desktop size */
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(26, 58, 46, 0.1); 
+    border-bottom: 4px solid var(--primary);
+    transition: transform 0.3s ease;
+    text-align: center;       /* optional but looks clean */
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Title */
+.stat-box h3 { 
+    font-size: 12px; 
+    text-transform: uppercase; 
+    color: #666; 
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Value */
+.stat-box p { 
+    font-size: 28px; 
+    font-weight: 800; 
 }
