@@ -149,3 +149,191 @@ nav {
     font-size: 28px; 
     font-weight: 800; 
 }
+
+
+/* --------------------------------------------------------------------------------------------- */
+
+/* Layout */
+        .main-grid { 
+            display: grid; 
+            grid-template-columns: 380px 1fr; 
+            gap: 25px; 
+        }
+        
+        .card { 
+            background: var(--card); 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 20px rgba(26, 58, 46, 0.1); 
+            margin-bottom: 25px;
+        }
+        
+        /* Form styling */
+        h2 { 
+            font-size: 20px; 
+            margin-bottom: 20px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+        
+        input, select { 
+            width: 100%; 
+            padding: 14px; 
+            margin-bottom: 15px; 
+            border: 2px solid #e8e8e8; 
+            border-radius: 10px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+            background: #f8f8f8;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+        }
+        
+        button { 
+            width: 100%; 
+            padding: 14px; 
+            border: none; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+        
+        .btn-add { 
+            background: var(--primary); 
+            color: white; 
+        }
+
+        .btn-add:hover {
+            background: #0f2419;
+            transform: scale(1.02);
+        }
+        
+        .btn-set { 
+            background: var(--text-main); 
+            color: white; 
+            margin-top: 5px; 
+        }
+
+        .btn-set:hover {
+            background: #0a0a0a;
+            transform: scale(1.02);
+        }
+
+        /* List Styling */
+        .expense-item { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 18px; 
+            border: 2px solid #f5f5f5; 
+            border-radius: 12px; 
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+
+        .expense-item:hover {
+            box-shadow: 0 4px 12px rgba(26, 58, 46, 0.1);
+        }
+        
+        .pending-item { 
+            border-left: 4px solid var(--pending); 
+            background: #fffcf5; 
+        }
+        
+        .done-item { 
+            border-left: 4px solid var(--success); 
+            background: #f0fdf4; 
+            opacity: 0.9; 
+        }
+        
+        .item-info b { 
+            display: block; 
+            font-size: 16px;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+        
+        .item-info span { 
+            font-size: 12px; 
+            color: #666; 
+        }
+
+        .complete-btn { 
+            background: var(--success); 
+            color: white; 
+            width: auto; 
+            padding: 8px 16px; 
+            font-size: 13px;
+            border-radius: 8px;
+        }
+
+        .complete-btn:hover {
+            background: #059669;
+        }
+        
+        .status-badge { 
+            font-size: 11px; 
+            padding: 4px 12px; 
+            border-radius: 12px; 
+            background: #dcfce7; 
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .amount { 
+            font-weight: bold; 
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .no-expenses {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Sidebar styling */
+        .sidebar .card {
+            border: 2px solid #e8f5e9;
+        }
+
+        .card-number {
+            background: var(--primary-light);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                grid-template-columns: 1fr;
+            }
+
+            .app-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+        
