@@ -5,42 +5,60 @@
     </nav>
 </header>
 
+<div class="container">
+    <div class="header">
+        <div class="stat-box">
+            <h3>Monthly Salary</h3>
+            <p id="total-salary">LKR 0.00</p>
+        </div>
+        <div class="stat-box">
+            <h3>Remaining Balance</h3>
+            <p id="current-balance" style="color: var(--primary);">LKR 0.00</p>
+        </div>
+        <div class="stat-box">
+            <h3>Total Planned</h3>
+            <p id="total-planned" style="color: var(--pending);">LKR 0.00</p>
+        </div>
+    </div>
 
-<div class="header">
-    <div class="stat-box">
-        <h3>Monthly Salary</h3>
-        <p id="total-salary">LKR 0.00</p>
-    </div>
-    <div class="stat-box">
-        <h3>Remaining Balance</h3>
-        <p id="current-balance" style="color: var(--primary);">LKR 0.00</p>
-    </div>
-    <div class="stat-box">
-        <h3>Total Planned</h3>
-        <p id="total-planned" style="color: var(--pending);">LKR 0.00</p>
+    <div class="main-grid">
+        <div class="sidebar">
+            <div class="card">
+                <h2><span class="card-number">1</span> Set Monthly Income</h2>
+                <input type="number" id="salary-input" placeholder="Enter Your Monthly Salary">
+                <button class="btn-set" onclick="setSalary()">Set Income</button>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-number">2</span> Plan Your Expenses</h2>
+                <input type="text" id="exp-name" placeholder="Expense Name (e.g. Electricity Bill)">
+                <input type="number" id="exp-amount" placeholder="Estimated Amount (LKR)">
+                <select id="exp-cat">
+                    <option value="Utilities">🔌 Utilities</option>
+                    <option value="Food">🍕 Food & Groceries</option>
+                    <option value="Health">🏥 Health & Medical</option>
+                    <option value="Transport">🚗 Transport</option>
+                    <option value="Entertainment">🎬 Entertainment</option>
+                    <option value="Other">📦 Other</option>
+                </select>
+                <button class="btn-add" onclick="planExpense()">Add to Monthly Plan</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="card">
+                <h2>📋 Pending Monthly Expenses</h2>
+                <div id="pending-list">
+                    <div class="no-expenses">No planned expenses yet. Start by adding your monthly expenses!</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>✅ Completed This Month</h2>
+                <div id="completed-list">
+                    <div class="no-expenses">No completed expenses yet.</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-<div class="main-grid">
-    <div class="sidebar">
-        <div class="card">
-            <h2><span class="card-number">1</span> Set Monthly Income</h2>
-            <input type="number" id="salary-input" placeholder="Enter Your Monthly Salary">
-            <button class="btn-set" onclick="setSalary()">Set Income</button>
-        </div>
-
-        <div class="card">
-            <h2><span class="card-number">2</span> Plan Your Expenses</h2>
-            <input type="text" id="exp-name" placeholder="Expense Name (e.g. Electricity Bill)">
-            <input type="number" id="exp-amount" placeholder="Estimated Amount (LKR)">
-            <select id="exp-cat">
-                <option value="Utilities">🔌 Utilities</option>
-                <option value="Food">🍕 Food & Groceries</option>
-                <option value="Health">🏥 Health & Medical</option>
-                <option value="Transport">🚗 Transport</option>
-                <option value="Entertainment">🎬 Entertainment</option>
-                <option value="Other">📦 Other</option>
-            </select>
-            <button class="btn-add" onclick="planExpense()">Add to Monthly Plan</button>
-        </div>
-    </div>
