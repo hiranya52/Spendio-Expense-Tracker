@@ -13,11 +13,11 @@
         </div>
         <div class="stat-box">
             <h3>Remaining Balance</h3>
-            <p id="current-balance" style="color: var(--primary);">LKR 0.00</p>
+            <p id="current-balance" style="color: #1a3a2e;">LKR 0.00</p>
         </div>
         <div class="stat-box">
             <h3>Total Planned</h3>
-            <p id="total-planned" style="color: var(--pending);">LKR 0.00</p>
+            <p id="total-planned" style="color: #f8a010;">LKR 0.00</p>
         </div>
     </div>
 
@@ -47,14 +47,51 @@
 
         <div class="content">
             <div class="card">
-                <h2>📋 Pending Monthly Expenses</h2>
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+                        viewBox="0,0,256,256">
+                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="none"
+                            stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <g transform="scale(5.33333,5.33333)">
+                                <circle cx="28" cy="28" r="18.5" fill="#adf0af" stroke="none" stroke-width="1"
+                                    stroke-linecap="butt" stroke-linejoin="miter"></circle>
+                                <path
+                                    d="M33.9,39.6c-2.9,1.8 -6.2,2.9 -9.9,2.9c-10.2,0 -18.5,-8.3 -18.5,-18.5c0,-3.3 0.9,-6.5 2.4,-9.2"
+                                    fill="none" stroke="#18193f" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M12.9,9.2c3.1,-2.3 7,-3.7 11.1,-3.7c10.2,0 18.5,8.3 18.5,18.5c0,3.3 -0.9,6.4 -2.4,9.1"
+                                    fill="none" stroke="#18193f" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path d="M22.5,13.5v12h8" fill="none" stroke="#18193f" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                        </g>
+                    </svg>
+                    Pending Monthly Expenses
+                </h2>
                 <div id="pending-list">
                     <div class="no-expenses">No planned expenses yet. Start by adding your monthly expenses!</div>
                 </div>
             </div>
 
             <div class="card">
-                <h2>✅ Completed This Month</h2>
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
+                        <circle cx="28" cy="28" r="18.1" fill="#adf0af"></circle>
+                        <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="3"
+                            d="M34.3,39.4c-2.9,2-6.5,3.1-10.3,3.1C13.8,42.5,5.5,34.2,5.5,24c0-4.4,1.6-8.5,4.1-11.7">
+                        </path>
+                        <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="3"
+                            d="M20.1,5.9c1.3-0.3,2.6-0.4,3.9-0.4c10.2,0,18.5,8.3,18.5,18.5c0,2.9-0.7,5.6-1.8,8"></path>
+                        <polyline fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="3" points="16.5,24.5 21.5,29.5 31.5,19.5"></polyline>
+                    </svg> Completed This Month
+                </h2>
                 <div id="completed-list">
                     <div class="no-expenses">No completed expenses yet.</div>
                 </div>
@@ -62,3 +99,7 @@
         </div>
     </div>
 </div>
+
+<footer>
+    <app-footer></app-footer>
+</footer>

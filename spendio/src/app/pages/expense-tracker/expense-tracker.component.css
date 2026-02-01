@@ -137,7 +137,7 @@ nav {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(26, 58, 46, 0.1);
-    border-bottom: 4px solid var(--primary);
+    border-bottom: 4px solid #1a3a2e;
     transition: transform 0.3s ease;
     text-align: center;
 }
@@ -160,9 +160,6 @@ nav {
     font-size: 28px;
     font-weight: 800;
 }
-
-
-/* --------------------------------------------------------------------------------------------- */
 
 /* Layout */
 .main-grid {
@@ -221,17 +218,17 @@ button {
 }
 
 .btn-add {
-    background: var(--primary);
+    background: #1a3a2e;
     color: white;
 }
 
 .btn-add:hover {
-    background: #0f2419;
+    background: #1a1a1a;
     transform: scale(1.02);
 }
 
 .btn-set {
-    background: var(--text-main);
+    background: #1a3a2e;
     color: white;
     margin-top: 5px;
 }
@@ -322,6 +319,7 @@ button {
 
 .card-number {
     background: var(--primary-light);
+    background-color: #c6ff8e;
     width: 35px;
     height: 35px;
     border-radius: 50%;
