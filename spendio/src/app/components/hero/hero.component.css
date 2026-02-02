@@ -245,3 +245,81 @@
     background: #0f2419;
     transform: scale(1.05);
 }
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 120px 40px 60px;
+    }
+
+    .dashboard-container {
+        padding: 40px;
+    }
+
+    .rating-card {
+        right: 0;
+        top: -50px;
+    }
+
+    .start-badge {
+        right: 0;
+        bottom: -60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .dashboard-header {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-container {
+        padding: 30px;
+    }
+
+    .rating-card {
+        position: static;
+        margin-top: 20px;
+    }
+
+    .start-badge {
+        position: static;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content h2 {
+        font-size: 16px;
+    }
+
+    .expense-info h4 {
+        font-size: 12px;
+    }
+
+    .expense-info span {
+        font-size: 10px;
+    }
+
+    .expense-amount {
+        font-size: 14px;
+    }
+
+    .start-badge h3 {
+        font-size: 20px;
+    }
+
+    .start-link {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
