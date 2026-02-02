@@ -1,3 +1,4 @@
+/* Header */
 header {
   background-color: #f5f5f5;
   padding: 20px 60px;
@@ -12,30 +13,30 @@ header {
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
+/* Logo */
 .logo {
   font-size: 28px;
   font-weight: 700;
   color: #1a1a1a;
 }
 
+/* Nav */
 nav {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
+/* Buttons */
 .nav-btn {
   padding: 12px 24px;
-  border: none;
   background: #e8e8e8;
   border-radius: 25px;
-  cursor: pointer;
   font-size: 15px;
   font-weight: 500;
-  transition: all 0.3s;
   color: #1a1a1a;
   text-decoration: none;
-  display: inline-block;
+  transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
@@ -53,9 +54,9 @@ nav {
 
 .nav-btn.mobile {
   background: #c6ff8e;
-  color: #1a1a1a;
 }
 
+/* Mobile indicator */
 .mobile-indicator {
   width: 8px;
   height: 8px;
@@ -68,16 +69,62 @@ nav {
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  50% { opacity: 0.4; }
 }
 
-/* Responsive */
+/* Hamburger menu */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  width: 25px;
+  height: 3px;
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Tablet */
 @media (max-width: 968px) {
   header {
     padding: 20px 30px;
   }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
 
   nav {
-    flex-wrap: wrap;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #f5f5f5;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  #menu-toggle:checked ~ nav {
+    display: flex;
+  }
+
+  .nav-btn {
+    width: 80%;
+    text-align: center;
   }
 }
