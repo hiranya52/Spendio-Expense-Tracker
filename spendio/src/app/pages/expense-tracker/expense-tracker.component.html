@@ -74,6 +74,22 @@
         </h2>
 
 
+        <div *ngFor="let item of plannedExpenses" class="expense-item pending-item">
+          <div class="item-info">
+            <b>{{ item.name }}</b>
+            <span>Category: {{ item.category }}</span>
+          </div>
+
+          <div style="display:flex;align-items:center;">
+            <span class="amount">
+              LKR {{ item.amount | number:'1.2-2' }}
+            </span>
+
+            <button class="complete-btn" (click)="completeExpense(item.id)">
+              Mark done
+            </button>
+          </div>
+
         <div id="pending-list">
             <div class="no-expenses" *ngIf="plannedExpenses.length === 0" >No planned expenses yet. Start by adding your monthly expenses!</div>
         </div>
@@ -96,7 +112,16 @@
         </h2>
 
 
+        <div *ngFor="let item of completedExpenses" class="expense-item done-item">
+          <div class="item-info">
+            <b>{{ item.name }}</b>
+            <span class="status-badge">Completed</span>
+          </div>
 
+          <span class="amount" style="color: var(--danger)">
+            - LKR {{ item.amount | number:'1.2-2' }}
+          </span>
+        </div>
 
 
         <div>
