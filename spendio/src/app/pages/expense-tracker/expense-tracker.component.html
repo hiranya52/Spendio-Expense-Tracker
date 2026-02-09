@@ -9,15 +9,15 @@
 <div class="header">
 <div class="stat-box">
     <h3>Monthly Salary</h3>
-    <p >LKR 0.00 {{ salary | number:'1.2-2' }}</p>
+    <p >LKR {{ salary | number:'1.2-2' }}</p>
 </div>
 <div class="stat-box">
     <h3>Remaining Balance</h3>
-    <p style="color: #1a3a2e;">LKR 0.00 {{ balance | number:'1.2-2' }}</p>
+    <p style="color: #1a3a2e;">LKR {{ balance | number:'1.2-2' }}</p>
 </div>
 <div class="stat-box">
     <h3>Total Planned</h3>
-    <p style="color: #f8a010;">LKR 0.00 {{ totalPlanned | number:'1.2-2' }}</p>
+    <p style="color: #f8a010;">LKR {{ totalPlanned | number:'1.2-2' }}</p>
 </div>
 </div>
 
@@ -31,7 +31,7 @@
 
     <div class="card">
         <h2><span class="card-number">2</span> Plan Your Expenses</h2>
-        <input type="text" placeholder="Expense Name (e.g. Electricity Bill) [(ngModel)]="expName"">
+        <input type="text" placeholder="Expense Name (e.g. Electricity Bill)" [(ngModel)]="expName">
         <input type="number" placeholder="Estimated Amount (LKR)"  [(ngModel)]="expAmount">
         <select [(ngModel)]="expCategory">
             <option value="Utilities">🔌 Utilities</option>
