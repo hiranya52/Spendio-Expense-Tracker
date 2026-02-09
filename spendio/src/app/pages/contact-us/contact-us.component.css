@@ -12,51 +12,6 @@
 
 /* ------------------------------------------------------- */
 
-/* ========== FAQ SECTION ========== */
-.faq-section {
-    padding: 60px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.faq-section h2 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #1a3a2e;
-}
-
-.faq-item {
-    background: white;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.faq-question {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.faq-toggle {
-    display: none;
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    transition: 0.4s ease;
-}
-
-.faq-toggle:checked + .faq-question + .faq-answer {
-    max-height: 500px;
-    padding: 20px;
-}
-
 /* ========== RESPONSIVE ========== */
 
 /* Tablet */
