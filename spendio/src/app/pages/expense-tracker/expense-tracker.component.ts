@@ -8,7 +8,7 @@ import { TrackerHeaderComponent } from "../../components/tracker-header/tracker-
 
 @Component({
   selector: 'app-expense-tracker',
-  imports: [CommonModule, FormsModule, TrackerHeaderComponent],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './expense-tracker.component.html',
   styleUrl: './expense-tracker.component.css'
 })

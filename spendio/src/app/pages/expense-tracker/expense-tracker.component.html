@@ -1,128 +1,285 @@
-<app-tracker-header></app-tracker-header>
-
-<div class="container">
-<div class="header">
-<div class="stat-box">
-    <h3>Monthly Salary</h3>
-    <p >LKR {{ salary | number:'1.2-2' }}</p>
-</div>
-<div class="stat-box">
-    <h3>Remaining Balance</h3>
-    <p style="color: #1a3a2e;">LKR {{ balance | number:'1.2-2' }}</p>
-</div>
-<div class="stat-box">
-    <h3>Total Planned</h3>
-    <p style="color: #f8a010;">LKR {{ totalPlanned | number:'1.2-2' }}</p>
-</div>
-</div>
-
-<div class="main-grid">
-<div class="sidebar">
-    <div class="card">
-        <h2><span class="card-number">1</span> Set Monthly Income</h2>
-        <input type="number" placeholder="Enter Your Monthly Salary" [(ngModel)]="salaryInput">
-        <button class="btn-set" (click)="setSalary()">Set Income</button>
-    </div>
-
-    <div class="card">
-        <h2><span class="card-number">2</span> Plan Your Expenses</h2>
-        <input type="text" placeholder="Expense Name (e.g. Electricity Bill)" [(ngModel)]="expName">
-        <input type="number" placeholder="Estimated Amount (LKR)"  [(ngModel)]="expAmount">
-        <select [(ngModel)]="expCategory">
-            <option value="Utilities">🔌 Utilities</option>
-            <option value="Food">🍕 Food & Groceries</option>
-            <option value="Health">🏥 Health & Medical</option>
-            <option value="Transport">🚗 Transport</option>
-            <option value="Entertainment">🎬 Entertainment</option>
-            <option value="Other">📦 Other</option>
-        </select>
-        <button class="btn-add" (click)="planExpense()">Add to Monthly Plan</button>
-    </div>
-</div>
-
-<div class="content">
-    <div class="card">
-        <h2>
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                viewBox="0,0,256,256">
-                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="none"
-                    stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                    style="mix-blend-mode: normal">
-                    <g transform="scale(5.33333,5.33333)">
-                        <circle cx="28" cy="28" r="18.5" fill="#adf0af" stroke="none" stroke-width="1"
-                            stroke-linecap="butt" stroke-linejoin="miter"></circle>
-                        <path
-                            d="M33.9,39.6c-2.9,1.8 -6.2,2.9 -9.9,2.9c-10.2,0 -18.5,-8.3 -18.5,-18.5c0,-3.3 0.9,-6.5 2.4,-9.2"
-                            fill="none" stroke="#18193f" stroke-width="3" stroke-linecap="round"
-                            stroke-linejoin="round"></path>
-                        <path
-                            d="M12.9,9.2c3.1,-2.3 7,-3.7 11.1,-3.7c10.2,0 18.5,8.3 18.5,18.5c0,3.3 -0.9,6.4 -2.4,9.1"
-                            fill="none" stroke="#18193f" stroke-width="3" stroke-linecap="round"
-                            stroke-linejoin="round"></path>
-                        <path d="M22.5,13.5v12h8" fill="none" stroke="#18193f" stroke-width="3"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                    </g>
-                </g>
-            </svg>
-            Pending Monthly Expenses
-        </h2>
-
-        <div *ngFor="let item of plannedExpenses" class="expense-item pending-item">
-          <div class="item-info">
-            <b>{{ item.name }}</b>
-            <span>Category: {{ item.category }}</span>
-          </div>
-
-          <div style="display:flex;align-items:center;">
-            <span class="amount">
-              LKR {{ item.amount | number:'1.2-2' }}
+<div
+  class="body bg-black text-white min-h-screen flex"
+>
+  <main class="flex-1 flex flex-col h-screen overflow-hidden relative">
+    <!-- Reset modal -->
+    <div
+      class="fixed inset-0 z-50 items-center justify-center bg-black/60 backdrop-blur-sm hidden target:flex"
+      id="reset-modal"
+    >
+      <a class="absolute inset-0 cursor-default" href="#"></a>
+      <div
+        class="relative w-full max-w-md bg-white dark:bg-zinc-900 rounded-2xl p-8 shadow-2xl border border-zinc-200 dark:border-zinc-800 transform transition-all"
+      >
+        <div class="flex items-center gap-4 mb-6">
+          <div
+            class="w-12 h-12 rounded-full bg-red-50 dark:bg-red-500/10 flex items-center justify-center flex-shrink-0"
+          >
+            <span class="material-symbols-outlined text-red-500 text-2xl">
+              warning
             </span>
-
-            <button class="complete-btn" (click)="completeExpense(item.id)">
-              Mark done
-            </button>
           </div>
-
-        <div id="pending-list">
-            <div class="no-expenses" *ngIf="plannedExpenses.length === 0" >No planned expenses yet. Start by adding your monthly expenses!</div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
-                <circle cx="28" cy="28" r="18.1" fill="#adf0af"></circle>
-                <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M34.3,39.4c-2.9,2-6.5,3.1-10.3,3.1C13.8,42.5,5.5,34.2,5.5,24c0-4.4,1.6-8.5,4.1-11.7">
-                </path>
-                <path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M20.1,5.9c1.3-0.3,2.6-0.4,3.9-0.4c10.2,0,18.5,8.3,18.5,18.5c0,2.9-0.7,5.6-1.8,8"></path>
-                <polyline fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="3" points="16.5,24.5 21.5,29.5 31.5,19.5"></polyline>
-            </svg> Completed This Month
-        </h2>
-
-
-        <div *ngFor="let item of completedExpenses" class="expense-item done-item">
-          <div class="item-info">
-            <b>{{ item.name }}</b>
-            <span class="status-badge">Completed</span>
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              Reset Dashboard?
+            </h3>
           </div>
-
-          <span class="amount" style="color: var(--danger)">
-            - LKR {{ item.amount | number:'1.2-2' }}
-          </span>
         </div>
-
-
-        <div>
-          <div class="no-expenses" *ngIf="completedExpenses.length === 0" >No completed expenses yet.</div>
+        <p class="text-slate-600 dark:text-zinc-400 mb-8 leading-relaxed">
+          This will permanently delete all your transactions and reset your total
+          balance to
+          <span class="font-mono font-medium text-slate-900 dark:text-white">
+            $0.00
+          </span>.
+          This action cannot be undone.
+        </p>
+        <div class="flex gap-3 justify-end">
+          <a
+            class="px-5 py-2.5 rounded-xl border border-zinc-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+            href="#"
+          >
+            Cancel
+          </a>
+          <button
+            class="px-5 py-2.5 rounded-xl bg-ash-purple text-white font-medium hover:bg-opacity-90 transition-all shadow-lg shadow-ash-purple/20"
+          >
+            Reset All
+          </button>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
+
+    <!-- Header -->
+    <header class="flex items-center justify-between px-8 py-6 pt-14">
+      <div class="flex items-center gap-3 cursor-pointer group">
+        <div
+          class="w-14 h-14 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden border border-zinc-300 dark:border-zinc-700"
+        >
+          <img
+            alt="Nataly Smith"
+            class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_S0SXRNuB_9HD1__jOpOrVKqRnZkwgLEXnUdeuhi2Ay-XSrIAeY5IT86HUPlwlS7xFVdabpKnSbVRvZhkWcWiGFVfKuH0Ev1EhJygXIbHmZp-GdGsIdmArH0E6g8TU4eQz_zYWk2AZZFOZqt18Er-bmnL-7Urf9zHkp5FdXopoN4X--AEH6VzlyMT7VP2FD9Z-komtm1Zci5qpo6WcCYxEPUa3e_cNet6Ruz-ultAKxC_tbF71eHlurKb0ZL5VCzCbHvmUn_GJH8"
+          />
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="font-medium text-2xl text-white">
+            Nataly Smith
+          </span>
+          <span
+            class="material-symbols-outlined text-zinc-400 group-hover:translate-x-1 transition-transform"
+            >chevron_right</span
+          >
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button
+          class="w-14 h-14 flex items-center justify-center rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+        >
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <a
+          class="w-14 h-14 flex items-center justify-center rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors group"
+          href="#reset-modal"
+          title="Reset Data"
+        >
+          <span
+            class="material-symbols-outlined text-zinc-400 group-hover:text-red-400 transition-colors"
+            >restart_alt</span
+          >
+        </a>
+        <!-- <button
+          class="w-14 h-14 flex items-center justify-center rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+        >
+          <span class="material-symbols-outlined">notifications</span>
+        </button> -->
+        <a class="bg-zinc-900 text-white px-6 py-2.5 text-l font-medium border border-white/20 hover:bg-white hover:text-black transition-all rounded-full hidden md:inline-block" routerLink="/">
+      Back
+    </a>
+      </div>
+    </header>
+
+    <!-- Main scrollable content -->
+    <div class="flex-1 overflow-y-auto no-scrollbar px-8 pb-12 flex flex-col">
+      <!-- Total balance section -->
+      <section class="mt-8 mb-12 flex-shrink-0">
+        <p
+          class="text-zinc-500 dark:text-zinc-400 text-sm font-medium uppercase tracking-widest mb-2"
+        >
+          Total Balance
+        </p>
+        <!-- Increased font size for balance -->
+        <h1 class="text-7xl md:text-8xl font-bold tracking-tight mb-8">
+          $4,923.82
+        </h1>
+
+        <!-- Added a bit more left gap for buttons -->
+        <div class="flex gap-8 pl-4">
+          <button
+            class="flex items-center gap-2 px-6 py-3 bg-zinc-900 text-white hover:text-[#2d283e] rounded-full font-semibold transition-all hover:bg-white active:scale-95 shadow-lg"
+          >
+            <span class="material-symbols-outlined text-xl">add</span>
+            Add Expense
+          </button>
+          <button
+            class="flex items-center gap-2 px-6 py-3 text-[#2d283e] border border-ash-purple hover:text-ash-purple bg-zinc-100 hover:bg-black rounded-full font-medium transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined text-xl">payments</span>
+            Add Income
+          </button>
+        </div>
+      </section>
+
+      <!-- Transactions card -->
+      <section
+        class="bg-zinc-900 dark:bg-zinc-900 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-zinc-800 flex flex-col min-h-0 overflow-hidden max-h-[580px]"
+      >
+        <div class="flex items-center justify-between mb-8 flex-shrink-0">
+          <h2 class="text-4xl font-semibold">Transactions</h2>
+          <button class="text-zinc-400 hover:text-black dark:hover:text-white">
+            <span class="material-symbols-outlined">tune</span>
+          </button>
+        </div>
+        <div class="custom-scrollbar overflow-y-auto pr-4 -mr-2 flex-1">
+          <div class="mb-10">
+            <h3 class="text-xs font-bold text-zinc-400 tracking-widest mb-6 uppercase">
+              Yesterday
+            </h3>
+            <div class="space-y-6">
+              <!-- transaction items... -->
+              <div class="flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center"
+                  >
+                    <img
+                      alt="Starbucks"
+                      class="w-6 h-6 group-hover:grayscale-0 transition-all"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZRsWXBvF6VPSDbsMH8jftC3JErHQxr9299UbYg406JyCykfVlGsgkNReiWTxLuOcIoBrL4gKyKtu51b_wPNH2_YdJHBJvuS-jRfgxnJ_8oeCMQjzCtH1qAej3H9L3cu-lYkG7WTLP_2rEuFCy0rHQuTdnPggDXDT8oKAPSgkBdmGHoGrVr_cL4j3cllMQPcZ_79Cj5dMe3eJkGK2Ir9Qt8EiHfeQuAdBxNqYeFBXV441w-_1MBqwVL4JrkvWem-n_CqdK2rnn3JE"
+                    />
+                  </div>
+                  <div>
+                    <p class="font-bold text-white">Starbucks</p>
+                    <p class="text-xs text-zinc-300">Food &amp; Drink</p>
+                  </div>
+                </div>
+                <span class="font-bold text-lg">-$5.75</span>
+              </div>
+
+              <div class="flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center"
+                  >
+                    <img
+                      alt="PayPal"
+                      class="w-6 h-6 group-hover:grayscale-0 transition-all"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYGtmX3FH3ljHb2Rg714oy9pSNx80wfbfp57GbFJ5wfqVqkFuEaHO1lzRXO24qWYWHuQFan_qD3hzKp_hLN74SqWcCA_uqviAjwWHD5WbIm5-7w_EeEF47rWgxdJa4buteDyBtccuCIrl2i6LCw6bZUrkKsv2mtj3Am3AvsyJg_PEHR2xPBFOHvRNYTl2gwefEVVfL92dSojv_gVCSmEEevstMUDwEprothSBQ4tfS4OfEnN4arrNZZX7s5oN_E5gdDcstBbltHtA"
+                    />
+                  </div>
+                  <div>
+                    <p class="font-bold text-white">PayPal</p>
+                    <p class="text-xs text-zinc-300">Transfers</p>
+                  </div>
+                </div>
+                <span class="font-bold text-lg text-green-500">+$50.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- More transaction days... -->
+          <div>
+            <h3 class="text-xs font-bold text-zinc-400 tracking-widest mb-6 uppercase">
+              27 July
+            </h3>
+            <div class="space-y-6">
+              <!-- items... -->
+              <div class="flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center"
+                  >
+                    <img
+                      alt="Walmart"
+                      class="w-6 h-6 group-hover:grayscale-0 transition-all"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Walmart_spark_%282025%29.svg/1280px-Walmart_spark_%282025%29.svg.png"
+                    />
+                  </div>
+                  <div>
+                    <p class="font-bold text-white">Walmart</p>
+                    <p class="text-xs text-zinc-300">Groceries</p>
+                  </div>
+                </div>
+                <span class="font-bold text-lg">-$45.23</span>
+              </div>
+
+              <!-- ...repeat other items similarly -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Sidebar / Stats -->
+  <aside
+    class="hidden xl:flex w-[470px] border-l border-slate-200 dark:border-zinc-800 flex-col p-8 bg-black dark:bg-background-dark pt-12"
+  >
+    <h2 class="text-2xl font-bold mb-8">Quick Statistics</h2>
+    <div class="space-y-6">
+      <div class="p-6 bg-zinc-900 rounded-xl">
+        <p class="text-zinc-500 text-sm mb-1">Spent this month</p>
+        <p class="text-3xl font-bold">$1,240.00</p>
+        <div class="mt-4 flex items-center gap-2 text-green-500 text-sm">
+          <span class="material-symbols-outlined text-sm">trending_down</span>
+          12% less than last month
+        </div>
+      </div>
+      <div class="p-6 bg-zinc-900 rounded-xl">
+        <p class="text-zinc-500 text-sm mb-4">Top Categories</p>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-2">
+              <span>Entertainment</span>
+              <span>45%</span>
+            </div>
+            <div class="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+              <div class="bg-zinc-900 dark:bg-white h-full" style="width: 45%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs font-bold mb-2">
+              <span>Food &amp; Drink</span>
+              <span>30%</span>
+            </div>
+            <div class="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+              <div class="bg-zinc-900 dark:bg-white h-full" style="width: 30%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-auto">
+      <div
+        class="bg-zinc-900 dark:bg-zinc-800 text-white p-6 rounded-xl relative overflow-hidden"
+      >
+        <div class="relative z-10">
+          <p class="text-sm opacity-60 mb-1">Upcoming Payment</p>
+          <p class="text-lg font-bold mb-4">Rent: $1,400.00</p>
+          <button
+            class="text-xs font-bold uppercase tracking-widest border border-white/20 px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-all"
+          >
+            Schedule
+          </button>
+        </div>
+        <div
+          class="absolute -right-8 -bottom-8 w-32 h-32 bg-white/5 rounded-full"
+        ></div>
+        <div
+          class="absolute -right-4 -bottom-4 w-24 h-24 bg-white/5 rounded-full border border-white/10"
+        ></div>
+      </div>
+    </div>
+  </aside>
+</div>
