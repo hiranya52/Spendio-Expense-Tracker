@@ -16,4 +16,8 @@ export class ToastComponent {
     this.toast.toast$.subscribe(m => this.message = m);
   }
 
+  onClose(){
+    this.toast.close();
+  }
+
 }
