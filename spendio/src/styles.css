@@ -3,10 +3,15 @@
   opacity: 0.15;
   pointer-events: none;
 }
-.abstract-gradient {
-  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
-}
+
 .hero-shape {
   box-shadow: 0 0 80px rgba(255, 255, 255, 0.03);
   transform: rotate(-5deg) skew(-5deg);
+}
+
+.abstract-gradient {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
