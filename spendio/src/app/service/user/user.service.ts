@@ -15,8 +15,8 @@ export class UserService {
       return this.http.post<user>(API_ENDPOINTS.user.add,userobj);
   }
 
-  getUser(email: string){
-    return this.http.get(API_ENDPOINTS.user.get + encodeURIComponent(email));
-  }
+  getUser(email: string): Observable<user> {
+  return this.http.get<user>(API_ENDPOINTS.user.get + encodeURIComponent(email));
+}
 
 }

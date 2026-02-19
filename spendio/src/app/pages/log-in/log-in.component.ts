@@ -38,17 +38,18 @@ export class LogInComponent {
 
     this.userService.getUser(this.email).subscribe(res => {
 
-      if(!res){ // safer check for null/undefined
-      this.toast.show('User Unavailable');
-    } else {
-      this.toast.show('User Available');
+    if(!res){
+      this.toast.show('Invalid Login');
+    }else{
+      console.log(res.password);
+
     }
 
     })
   }
 
 
-  
+
 
 
 }
