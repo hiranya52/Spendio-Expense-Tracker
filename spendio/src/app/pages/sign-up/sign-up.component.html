@@ -52,6 +52,7 @@
           background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuA6oph9G6whQIrIRLq5ijSuJoVMWz3OcoL6jw-w6cdNe4JSw0BJ6KGkbnzhIGic8w9ZOwWwOfHeZKQH5UHq12GuppDNBUpLMt9pFDRPsmQgFz4GIN0NbDbcHaDOWkbnof4IwUsUKzewHEk0GoB9nMhYjPSEUPhPknY45bZZFLF81Ck54b3CxwlYfnVaPbzHliUD9GtQqFfaHv40KzO43q3HMYt0LP97uQrX08LVjeUvoMKLBBtERL0wBs0tLdb8PDXF6YRh-SnFYW8&quot;);
         "
       ></div>
+
       <div
         class="w-full max-w-[480px] bg-card-dark/80 backdrop-blur-md border border-border-purple rounded-2xl shadow-glow-purple relative z-10 p-8 md:p-12 overflow-y-auto max-h-full"
       >
@@ -70,8 +71,8 @@
             Start tracking your expenses today
           </p>
         </div>
-        <form class="flex flex-col gap-5">
-          <label class="block">
+        <form class="flex flex-col gap-5" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <label class="block" formControlName="name">
             <span class="text-white text-sm font-semibold mb-1.5 block ml-1"
               >Full Name</span
             >
@@ -90,7 +91,7 @@
               />
             </div>
           </label>
-          <label class="block">
+          <label class="block" formControlName="email">
             <span class="text-white text-sm font-semibold mb-1.5 block ml-1"
               >Email Address</span
             >
@@ -107,7 +108,7 @@
               />
             </div>
           </label>
-          <label class="block">
+          <label class="block" formControlName="password">
             <span class="text-white text-sm font-semibold mb-1.5 block ml-1"
               >Password</span
             >

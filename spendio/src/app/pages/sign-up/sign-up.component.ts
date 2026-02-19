@@ -1,12 +1,39 @@
+import { user } from './../../../model/user.model';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-sign-up',
-  imports: [RouterLink],
+  imports: [RouterLink, ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
+
+
+  userForm: FormGroup
+
+  constructor(
+    // private StudentService: StudentService,
+    formBuilder: FormBuilder
+  ){
+
+    this.userForm = formBuilder.group({
+      name: [''],
+      email: [''],
+      password: ['']
+    })
+
+  }
+
+
+  onSubmit(){
+
+    const user = this.userForm.value;
+
+
+  }
+
 
 }
