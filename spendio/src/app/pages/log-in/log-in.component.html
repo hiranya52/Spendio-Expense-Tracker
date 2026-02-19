@@ -67,7 +67,7 @@
             </p>
           </div>
           <!-- Form -->
-          <form action="#" class="flex flex-col gap-5 mt-2" method="POST">
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="flex flex-col gap-5 mt-2" method="POST">
             <!-- Email Input -->
             <div class="flex flex-col gap-1.5">
               <label
@@ -90,6 +90,7 @@
                   placeholder="john@example.com"
                   required=""
                   type="email"
+                  formControlName="email"
                 />
               </div>
             </div>
@@ -117,6 +118,7 @@
                   placeholder="••••••••"
                   required=""
                   type="password"
+                  formControlName="password"
                 />
               </div>
               <div class="flex justify-end mt-1">
@@ -130,7 +132,7 @@
             <!-- Login Button -->
             <button
               class="mt-4 w-full bg-[#1a1122] hover:bg-primary text-white font-bold py-3.5 px-4 rounded-full transition-all duration-300 transform hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
-              type="submit" routerLink="/"
+              type="submit" 
             >
               <span>Login</span>
               <span
@@ -179,7 +181,7 @@
               Don't have an account?
               <a
                 class="text-[#1a1122] font-bold hover:text-primary transition-colors underline decoration-2 decoration-transparent hover:decoration-primary underline-offset-4"
-                routerLink="/signUp"
+                routerLink="signUp"
                 >Sign Up</a
               >
             </p>
