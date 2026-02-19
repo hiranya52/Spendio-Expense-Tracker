@@ -7,6 +7,7 @@ export const API_ENDPOINTS = {
   user:{
 
     add: `${BASE_URL}/user/add`,
+    get: `${BASE_URL}/user/get?email=`
 
   }
 

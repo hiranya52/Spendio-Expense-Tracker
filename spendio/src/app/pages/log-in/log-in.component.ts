@@ -1,6 +1,7 @@
+import { UserService } from './../../service/user/user.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-log-in',
@@ -9,6 +10,8 @@ import { Component } from '@angular/core';
   styleUrl: './log-in.component.css'
 })
 export class LogInComponent {
+
+  private userService = inject(UserService);
 
   loginForm: FormGroup;
 
@@ -29,7 +32,10 @@ export class LogInComponent {
     this.email = this.loginForm.value.email;
     this.password = this.loginForm.value.password;
 
-    
+    this.userService.getUser(this.email).subscribe(res => {
+      console.log(res);
+
+    })
 
 
   }

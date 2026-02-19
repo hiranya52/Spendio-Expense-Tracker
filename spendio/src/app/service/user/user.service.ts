@@ -12,7 +12,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   addUser(userobj: user): Observable<user> {
-    return this.http.post<user>(API_ENDPOINTS.user.add,userobj);
-}
+      return this.http.post<user>(API_ENDPOINTS.user.add,userobj);
+  }
+
+  getUser(email: string){
+    return this.http.get(API_ENDPOINTS.user.get + encodeURIComponent(email));
+  }
 
 }
