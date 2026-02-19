@@ -1,3 +1,4 @@
+import { UserService } from './../../service/user/user.service';
 import { user } from './../../../model/user.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -15,7 +16,7 @@ export class SignUpComponent {
   userForm: FormGroup
 
   constructor(
-    // private StudentService: StudentService,
+    private userService: UserService,
     formBuilder: FormBuilder
   ){
 
@@ -32,6 +33,10 @@ export class SignUpComponent {
 
     const user = this.userForm.value;
 
+    this.userService.addUser(user).subscribe( res => {
+      console.log(res);
+
+    })
 
   }
 
