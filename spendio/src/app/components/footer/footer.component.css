@@ -30,8 +30,8 @@ footer {
 }
 
 .footer-nav {
-    color: #666;
-    background: #e8e8e8;
+    color: #2d283e;
+    background: #d4cdec;
 }
 
 .footer-nav:hover {
@@ -39,7 +39,7 @@ footer {
 }
 
 .start-btn {
-    background: #1a3a2e;
+    background: #2d283e;
     color: white;
 }
 
@@ -54,9 +54,9 @@ footer {
 }
 
 .social-links a {
-    color: #666;
+    color: #2d283e;
     text-decoration: none;
-    background: #e8e8e8;
+    background: #d4cdec;
     padding: 10px 20px;
     border-radius: 20px;
     transition: all 0.3s ease;
@@ -83,7 +83,7 @@ footer {
     margin: 0;
     line-height: 0.8;
     letter-spacing: -0.05em;
-    color: #1a3a2e;
+    color: #1a1a1c;
     text-align: center;
     transform: translateY(10%);
 }
