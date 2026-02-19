@@ -1,6 +1,6 @@
 .grainy-texture {
-  background-image: url();
-  opacity: 0.15;
+  background-image: url(/main-Img.jpg);
+  opacity: 0.95;
   pointer-events: none;
 }
 
