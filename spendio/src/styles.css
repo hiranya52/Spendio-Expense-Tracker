@@ -1,12 +1,7 @@
 .grainy-texture {
-  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCQoP3EA-6WuAS7Uob6krhOZpXDx1H31tFrEfXsOBJKirOas7tlcfza_yt3B7hIqMbX1bDhkbhC2nFnKs6dCilEsVBBv74QUxa38vdZAMIgr6yak6bJK2isx2p712SInffI9YN_M5LZkdHZ34Oq7iqTEKsgErYN6xzMb7WbsvOplikI4A0tT3WoFQXX19uZQNBLeRNVpWJdoUSlc_fqQh0AFAK_JC4tWYs6gMudYKOKNucXsSOdJ74dsjDTsi6S0J_yw_L02bDaAFg);
+  background-image: url();
   opacity: 0.15;
   pointer-events: none;
-}
-
-.hero-shape {
-  box-shadow: 0 0 80px rgba(255, 255, 255, 0.03);
-  transform: rotate(-5deg) skew(-5deg);
 }
 
 .abstract-gradient {
