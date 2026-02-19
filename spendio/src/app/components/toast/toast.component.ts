@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NotificationService } from '../../service/notification/notification.service';
 
 @Component({
   selector: 'app-toast',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './toast.component.html',
   styleUrl: './toast.component.css'
 })

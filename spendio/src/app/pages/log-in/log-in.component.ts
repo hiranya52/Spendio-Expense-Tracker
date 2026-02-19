@@ -2,6 +2,7 @@ import { UserService } from './../../service/user/user.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Component, inject } from '@angular/core';
+import { NotificationService } from '../../service/notification/notification.service';
 
 @Component({
   selector: 'app-log-in',
@@ -18,7 +19,10 @@ export class LogInComponent {
   email!:string;
   password!:string;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private toast: NotificationService
+  ) {
 
     this.loginForm = this.fb.group({
       email: [''],
@@ -33,7 +37,12 @@ export class LogInComponent {
     this.password = this.loginForm.value.password;
 
     this.userService.getUser(this.email).subscribe(res => {
-      console.log(res);
+
+      if(!res){ // safer check for null/undefined
+      this.toast.show('User Unavailable');
+    } else {
+      this.toast.show('User Available');
+    }
 
     })
 
