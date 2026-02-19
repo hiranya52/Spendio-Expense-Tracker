@@ -1,6 +1,6 @@
 import { UserService } from './../../service/user/user.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { NotificationService } from '../../service/notification/notification.service';
 
@@ -21,7 +21,8 @@ export class LogInComponent {
 
   constructor(
     private fb: FormBuilder,
-    private toast: NotificationService
+    private toast: NotificationService,
+    private router: Router
   ) {
 
     this.loginForm = this.fb.group({
@@ -40,8 +41,10 @@ export class LogInComponent {
 
     if(!res){
       this.toast.show('Invalid Login');
+    }else if(res.password != this.password){
+      this.toast.show('Invalid Login');
     }else{
-      console.log(res.password);
+      this.router.navigate(['/expenseTracker']);
 
     }
 
