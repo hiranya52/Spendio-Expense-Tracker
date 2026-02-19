@@ -1,86 +1,54 @@
-<section class="hero" id="home">
-  <div class="hero-content">
-    <h2>WELCOME TO <span class="welcome-badge">SPENDIO</span></h2>
-    <h1>Gain Control. Track Your Finances.</h1>
-    <div class="icon-circle">
-      <div class="circle"></div>
-      <div class="circle filled">
-        <div class="pause-icon"></div>
-      </div>
-      <div class="circle"></div>
+<div class="relative w-full md:w-[55%] min-h-[50vh] md:min-h-screen bg-black flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 grainy-texture"></div>
+  <div class="relative w-full h-full flex items-center justify-center">
+    <!-- Hero layers -->
+    <div class="absolute w-[300px] h-[450px] md:w-[450px] md:h-[600px] bg-zinc-900 hero-shape flex items-end p-8 border border-white/5">
+      <div class="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
     </div>
-  </div>
-
-   <!-- Person Image -->
-      <div class="person-image">
-        <img src="hero-img.png" alt="Person illustration" class="person-img"/>
+    <div class="absolute w-[250px] h-[350px] md:w-[400px] md:h-[500px] bg-zinc-800/80 -translate-x-12 translate-y-24 rotate-12 hero-shape border border-white/10 backdrop-blur-sm">
+      <div class="absolute top-0 right-0 p-6">
+        <span class="material-icons opacity-20 text-4xl">dashboard_customize</span>
       </div>
-
-      <!-- Start Badge -->
-      <div class="start-badge">
-        <h3>
-          <span class="rocket-icon">
-            <svg viewBox="0 0 441.948 441.948">
-              <path
-                d="M435.581,13.329c-0.938-3.382-3.581-6.023-6.961-6.962c-36.445-10.115-75.921-8.147-114.161,5.688 c-29.631,10.721-58.449,28.693-79.065,49.31l-31.096,31.096L91.644,110.058c-2.094,0.327-4.029,1.311-5.528,2.809l-72.051,72.051 c-2.806,2.807-3.688,7.006-2.247,10.703c1.441,3.697,4.933,6.192,8.897,6.359l71.073,2.989l-17.813,17.813 c-3.905,3.905-3.905,10.237,0,14.143l10.397,10.396L53.319,294.92c-2.584,3.961-2.041,9.19,1.304,12.535l79.871,79.87 c3.345,3.344,8.574,3.89,12.536,1.304l47.597-31.054l10.397,10.397c3.905,3.904,10.237,3.904,14.143,0l17.813-17.813l2.989,71.071 c0.167,3.965,2.662,7.456,6.359,8.897c1.18,0.46,2.41,0.683,3.63,0.683c2.604,0,5.162-1.019,7.073-2.929l72.051-72.051 c1.499-1.499,2.482-3.435,2.81-5.528l17.598-112.653l31.095-31.096c20.616-20.616,38.589-49.434,49.31-79.064 C443.728,89.25,445.695,49.773,435.581,13.329z"
-              />
-            </svg>
-          </span>
-          Start
-        </h3>
-        <h3>Managing</h3>
-        <a href="app.html" class="start-link">START NOW →</a>
-      </div>
-
-  <div class="hero-visual">
-    <div class="visual-container">
-      <!-- Dashboard Card -->
-      <div class="dashboard-card">
-        <div class="stat-grid">
-          <div class="stat-mini">
-            <h4>Monthly Salary</h4>
-            <p>LKR 150K</p>
-          </div>
-          <div class="stat-mini balance">
-            <h4>Balance</h4>
-            <p>LKR 85K</p>
-          </div>
-          <div class="stat-mini planned">
-            <h4>Planned</h4>
-            <p>LKR 65K</p>
-          </div>
+    </div>
+    <div class="absolute w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-zinc-700/50 -translate-y-48 translate-x-32 -rotate-12 hero-shape border border-white/5"></div>
+    <div class="absolute bottom-20 left-20 md:bottom-40 md:left-40 p-6 bg-zinc-900/90 border border-white/10 rounded-2xl backdrop-blur-xl shadow-2xl hidden lg:block transform hover:scale-105 transition-transform">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+          <span class="material-icons text-white">insights</span>
         </div>
-
-        <div class="pending-section">
-          <h5>Pending Expenses</h5>
-
-          <div class="expense-mini">
-            <div>
-              <h6>Electricity Bill</h6>
-              <span>Category: Utilities</span>
-            </div>
-            <div class="amount">LKR 15,000</div>
-          </div>
-
-          <div class="expense-mini">
-            <div>
-              <h6>Groceries</h6>
-              <span>Category: Food</span>
-            </div>
-            <div class="amount">LKR 25,000</div>
-          </div>
-
-          <div class="expense-mini">
-            <div>
-              <h6>Internet Bill</h6>
-              <span>Category: Utilities</span>
-            </div>
-            <div class="amount">LKR 5,000</div>
-          </div>
+        <div>
+          <p class="text-[10px] uppercase tracking-widest opacity-40">Monthly Savings</p>
+          <p class="text-lg font-semibold">+$2,450.00</p>
         </div>
       </div>
-
-
+      <div class="w-48 h-1 bg-white/5 rounded-full overflow-hidden">
+        <div class="w-2/3 h-full bg-white"></div>
+      </div>
     </div>
   </div>
-</section>
+</div>
+
+<div class="relative w-full md:w-[45%] min-h-screen flex flex-col justify-center px-8 md:px-20 lg:px-24 bg-background-light dark:bg-background-dark py-24">
+  <div class="max-w-xl">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900/5 dark:bg-zinc-100/10 rounded-full mb-8">
+      <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+      <span class="text-[10px] uppercase tracking-[0.2em] font-medium opacity-70">New: Version 2.0 Live</span>
+    </div>
+    <h1 class="font-display text-6xl md:text-7xl lg:text-8xl font-medium leading-[1.1] tracking-tight mb-8">
+      Manage Smarter. <br/>
+      <span class="italic text-gray-400 dark:text-zinc-600">Track Everywhere.</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-600 dark:text-zinc-400 leading-relaxed mb-12 max-w-lg">
+      Elevate your financial management with professional tools designed for clarity. Beautiful, high-contrast interfaces for the modern entrepreneur.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center gap-6">
+      <button class="w-full sm:w-auto px-10 py-5 bg-black dark:bg-white text-white dark:text-black text-lg font-medium rounded-full hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-black/10">
+        Get Started
+      </button>
+      <button class="w-full sm:w-auto px-10 py-5 border border-zinc-200 dark:border-zinc-800 text-lg font-medium rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all flex items-center justify-center gap-2 group">
+        Live Demo
+        <span class="material-icons text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</div>
