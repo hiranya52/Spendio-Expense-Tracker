@@ -23,6 +23,6 @@ export class ExpenseTrackerComponent {
     this.user = history.state.user;
   }
 
-  
+
 
 }
