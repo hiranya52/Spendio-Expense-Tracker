@@ -1,23 +1,23 @@
-<!-- <div class="bg-background-dark min-h-screen flex items-center justify-center p-6 transition-colors duration-300"> -->
-  <div *ngIf="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity duration-300">
-  <!-- <div [ngClass]="{'hidden': !isOpen, 'visible': isOpen}" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"> -->
+<div *ngIf="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity duration-300">
   <div class="glass glow-effect w-full max-w-[380px] rounded-3xl p-8 text-white text-slate-900">
     <header class="mb-8 text-center">
       <h1 class="font-display text-2xl tracking-tight">New Expense</h1>
     </header>
-    <form class="space-y-5">
+    <form class="space-y-5" [formGroup]="addExpForm" (ngSubmit)="onSubmit()">
       <div class="relative group">
         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
           <span class="material-icons-round text-primary text-xl">attach_money</span>
         </div>
         <input
+          formControlName="amount"
           class="block w-full pl-11 pr-4 py-3 bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-lg font-medium placeholder-slate-400"
-          placeholder="0.00" step="0.01" type="number" />
+          placeholder="0.00" step="1.00" type="number" />
       </div>
       <div class="space-y-1.5">
         <label
           class="text-xs uppercase tracking-widest text-white font-semibold ml-1">Description</label>
         <input
+          formControlName="title"
           class="block w-full px-4 py-3 bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none placeholder-slate-400"
           placeholder="What was this for?" type="text" />
       </div>
@@ -26,6 +26,7 @@
           class="text-xs uppercase tracking-widest text-white font-semibold ml-1">Category</label>
         <div class="relative">
           <select
+            formControlName="category"
             class="text-white placeholder-slate-400 block w-full px-4 py-3 bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none appearance-none cursor-pointer">
             <option class="dark:bg-slate-900 text-slate-400" disabled="" selected="" value="">
               Select Category
@@ -45,6 +46,7 @@
         <label class="text-xs uppercase tracking-widest text-white font-semibold ml-1">Date</label>
         <div class="relative">
           <input
+            formControlName="date"
             class="block w-full px-4 py-3 bg-white/5 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none placeholder-slate-400"
             type="date" />
         </div>
