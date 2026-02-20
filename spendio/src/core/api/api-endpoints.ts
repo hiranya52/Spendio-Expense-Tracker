@@ -9,7 +9,14 @@ export const API_ENDPOINTS = {
     add: `${BASE_URL}/user/add`,
     get: `${BASE_URL}/user/get/`
 
-  }
+  },
+
+  transaction: {
+
+    getAll: `${BASE_URL}/transaction/user/`
+
+  },
+
 
 
 }
