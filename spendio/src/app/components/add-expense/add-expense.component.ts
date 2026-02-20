@@ -2,8 +2,9 @@ import { user } from './../../../model/user.model';
 import { transaction } from './../../../model/transaction.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { AddExpenseService } from '../../service/addExpense/add-expense.service';
+import { TransactionService } from '../../service/transaction/transaction.service';
 
 @Component({
   selector: 'app-add-expense',
@@ -14,6 +15,8 @@ import { AddExpenseService } from '../../service/addExpense/add-expense.service'
 export class AddExpenseComponent{
 
   @Input() userEmail!: string;
+
+  private transactionService = inject(TransactionService);
 
   isOpen = false;
 
@@ -44,7 +47,10 @@ onSubmit(){
 
   const transaction = this.addExpForm.value;
 
-  console.log(transaction);
+  this.transactionService.addTransaction(transaction, this.userEmail).subscribe(res => {
+    console.log(res);
+
+  })
 
 }
 
