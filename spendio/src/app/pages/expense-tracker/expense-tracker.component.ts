@@ -22,25 +22,30 @@ export class ExpenseTrackerComponent {
 
   user!: user
 
-  transactionList:transaction[] = [];
+  transactionList: transaction[] = [];
 
   constructor(
     private router: Router,
     private addService: AddExpenseService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.user = history.state.user;
 
     this.transactionService.getUserTransactions(this.user.email).subscribe(res => {
-      this.transactionList=res;
+      this.transactionList = res;
     })
 
-
-
   }
+
   openAddExpense() {
-  this.addService.open();
-}
+    this.addService.open();
+  }
+
+
+  addNewTransaction(transac: transaction){
+    this.transactionList.push(transac);
+  }
+
 
 }

@@ -1,5 +1,4 @@
-import { user } from './../../../model/user.model';
-import { transaction } from './../../../model/transaction.model';
+import { ExpenseTrackerComponent } from './../../pages/expense-tracker/expense-tracker.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
@@ -17,6 +16,8 @@ export class AddExpenseComponent{
   @Input() userEmail!: string;
 
   private transactionService = inject(TransactionService);
+
+  private expenseTracker = inject(ExpenseTrackerComponent);
 
   isOpen = false;
 
@@ -48,7 +49,7 @@ onSubmit(){
   const transaction = this.addExpForm.value;
 
   this.transactionService.addTransaction(transaction, this.userEmail).subscribe(res => {
-    console.log(res);
+    this.expenseTracker.addNewTransaction(res)
 
   })
 
