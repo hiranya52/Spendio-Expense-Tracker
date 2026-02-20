@@ -1,3 +1,5 @@
+import { transaction } from './../../../model/transaction.model';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_ENDPOINTS } from '../../../core/api/api-endpoints';
@@ -10,9 +12,9 @@ export class TransactionService {
   constructor(private http: HttpClient) { }
 
 
-  getAllTransactions(email: string){
+  getUserTransactions(email: string): Observable<transaction[]> {
 
-    this.http.get(API_ENDPOINTS.transaction.getAll + encodeURIComponent(email))
+    return this.http.get<transaction[]>(API_ENDPOINTS.transaction.getAll + encodeURIComponent(email))
 
   }
 

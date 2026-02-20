@@ -5,6 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { user } from '../../../model/user.model';
+import { transaction } from '../../../model/transaction.model';
 
 @Component({
   selector: 'app-expense-tracker',
@@ -18,16 +19,21 @@ export class ExpenseTrackerComponent {
 
   user!: user
 
+  transactionList:transaction[] = [];
+
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.user = history.state.user;
 
+    this.transactionService.getAllTransactions(this.user.email).subscribe(res => {
 
+
+
+    })
 
 
   }
-
 
 
 }
