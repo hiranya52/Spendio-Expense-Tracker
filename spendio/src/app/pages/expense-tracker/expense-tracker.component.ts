@@ -7,10 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { user } from '../../../model/user.model';
 import { transaction } from '../../../model/transaction.model';
 import { TransactionItemComponent } from "../../components/transaction-item/transaction-item.component";
+import { AddExpenseService } from '../../service/addExpense/add-expense.service';
+import { AddExpenseComponent } from "../../components/add-expense/add-expense.component";
 
 @Component({
   selector: 'app-expense-tracker',
-  imports: [CommonModule, FormsModule, RouterLink, TransactionItemComponent],
+  imports: [CommonModule, FormsModule, RouterLink, TransactionItemComponent, AddExpenseComponent],
   templateUrl: './expense-tracker.component.html',
   styleUrl: './expense-tracker.component.css'
 })
@@ -22,7 +24,10 @@ export class ExpenseTrackerComponent {
 
   transactionList:transaction[] = [];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private addService: AddExpenseService
+  ) {}
 
   ngOnInit() {
     this.user = history.state.user;
@@ -31,7 +36,11 @@ export class ExpenseTrackerComponent {
       this.transactionList=res;
     })
 
-  }
 
+
+  }
+  openAddExpense() {
+  this.addService.open();
+}
 
 }

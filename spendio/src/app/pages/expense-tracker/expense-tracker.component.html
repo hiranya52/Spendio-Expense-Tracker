@@ -59,7 +59,7 @@
           <img
             alt="Nataly Smith"
             class="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_S0SXRNuB_9HD1__jOpOrVKqRnZkwgLEXnUdeuhi2Ay-XSrIAeY5IT86HUPlwlS7xFVdabpKnSbVRvZhkWcWiGFVfKuH0Ev1EhJygXIbHmZp-GdGsIdmArH0E6g8TU4eQz_zYWk2AZZFOZqt18Er-bmnL-7Urf9zHkp5FdXopoN4X--AEH6VzlyMT7VP2FD9Z-komtm1Zci5qpo6WcCYxEPUa3e_cNet6Ruz-ultAKxC_tbF71eHlurKb0ZL5VCzCbHvmUn_GJH8"
+            src="User.png"
           />
         </div>
         <div class="flex items-center gap-1">
@@ -81,7 +81,6 @@
         </button>
         <a
           class="w-14 h-14 flex items-center justify-center rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors group"
-          href="#reset-modal"
           title="Reset Data"
         >
           <span
@@ -116,12 +115,14 @@
 
         <!-- Added a bit more left gap for buttons -->
         <div class="flex gap-8 pl-4">
-          <button
+          <button (click)="openAddExpense()"
             class="flex items-center gap-2 px-6 py-3 bg-zinc-900 text-white hover:text-[#2d283e] rounded-full font-semibold transition-all hover:bg-white active:scale-95 shadow-lg"
+
           >
             <span class="material-symbols-outlined text-xl">add</span>
             Add Expense
           </button>
+
           <button
             class="flex items-center gap-2 px-6 py-3 text-[#2d283e] border border-ash-purple hover:text-ash-purple bg-zinc-100 hover:bg-black rounded-full font-medium transition-all active:scale-95"
           >
@@ -222,3 +223,6 @@
     </div>
   </aside>
 </div>
+
+<!-- At the bottom of your template, outside main content -->
+<app-add-expense></app-add-expense>
