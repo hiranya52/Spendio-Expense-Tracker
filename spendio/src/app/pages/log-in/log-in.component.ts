@@ -44,7 +44,9 @@ export class LogInComponent {
     }else if(res.password != this.password){
       this.toast.show('Invalid Login');
     }else{
-      this.router.navigate(['/expenseTracker']);
+      this.router.navigate(['/expenseTracker'],
+         { state: { user: res } }
+      );
 
     }
 
