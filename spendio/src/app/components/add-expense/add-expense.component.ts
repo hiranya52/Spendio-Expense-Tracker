@@ -49,13 +49,10 @@ onSubmit(){
   const transaction = this.addExpForm.value;
 
   this.transactionService.addTransaction(transaction, this.userEmail).subscribe(res => {
-    this.expenseTracker.addNewTransaction(res)
-
+    this.expenseTracker.addNewTransaction(res);
+    this.onClose();
   })
 
 }
-
-
-
 
 }
