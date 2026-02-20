@@ -1,7 +1,8 @@
+import { user } from './../../../model/user.model';
 import { transaction } from './../../../model/transaction.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AddExpenseService } from '../../service/addExpense/add-expense.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { AddExpenseService } from '../../service/addExpense/add-expense.service'
   styleUrl: './add-expense.component.css'
 })
 export class AddExpenseComponent{
+
+  @Input() userEmail!: string;
 
   isOpen = false;
 
@@ -43,9 +46,7 @@ onSubmit(){
 
   console.log(transaction);
 
-
 }
-
 
 
 
