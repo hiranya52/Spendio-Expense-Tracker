@@ -26,12 +26,11 @@ export class ExpenseTrackerComponent {
   ngOnInit() {
     this.user = history.state.user;
 
-    this.transactionService.getAllTransactions(this.user.email).subscribe(res => {
+    this.transactionService.getUserTransactions(this.user.email).subscribe(res => {
 
-
+      this.transactionList=res;
 
     })
-
 
   }
 
