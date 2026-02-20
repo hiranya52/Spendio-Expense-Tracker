@@ -152,40 +152,11 @@
 
             <div class="space-y-6">
 
-              
+              <app-transaction-item *ngFor="let item of transactionList; let i = index" [transaction]="item"></app-transaction-item>
 
-              <!-- <div class="flex items-center justify-between group cursor-pointer">
-                <div class="flex items-center gap-4">
-                  <div
-                    class="w-12 h-12 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center"
-                  >
-                    <img
-                      alt="PayPal"
-                      class="w-6 h-6 group-hover:grayscale-0 transition-all"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYGtmX3FH3ljHb2Rg714oy9pSNx80wfbfp57GbFJ5wfqVqkFuEaHO1lzRXO24qWYWHuQFan_qD3hzKp_hLN74SqWcCA_uqviAjwWHD5WbIm5-7w_EeEF47rWgxdJa4buteDyBtccuCIrl2i6LCw6bZUrkKsv2mtj3Am3AvsyJg_PEHR2xPBFOHvRNYTl2gwefEVVfL92dSojv_gVCSmEEevstMUDwEprothSBQ4tfS4OfEnN4arrNZZX7s5oN_E5gdDcstBbltHtA"
-                    />
-                  </div>
-                  <div>
-                    <p class="font-bold text-white">PayPal</p>
-                    <p class="text-xs text-zinc-300">Transfers</p>
-                  </div>
-                </div>
-                <span class="font-bold text-lg text-green-500">+$50.00</span>
-              </div> -->
             </div>
           </div>
           </div>
-
-
-
-
-
-
-
-
-
-
-
       </section>
     </div>
   </main>
