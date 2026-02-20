@@ -1,0 +1,18 @@
+<div class="flex items-center justify-between group cursor-pointer">
+  <div class="flex items-center gap-4">
+    <div
+      class="w-12 h-12 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center"
+    >
+      <img
+        alt="Starbucks"
+        class="w-6 h-6 group-hover:grayscale-0 transition-all"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZRsWXBvF6VPSDbsMH8jftC3JErHQxr9299UbYg406JyCykfVlGsgkNReiWTxLuOcIoBrL4gKyKtu51b_wPNH2_YdJHBJvuS-jRfgxnJ_8oeCMQjzCtH1qAej3H9L3cu-lYkG7WTLP_2rEuFCy0rHQuTdnPggDXDT8oKAPSgkBdmGHoGrVr_cL4j3cllMQPcZ_79Cj5dMe3eJkGK2Ir9Qt8EiHfeQuAdBxNqYeFBXV441w-_1MBqwVL4JrkvWem-n_CqdK2rnn3JE"
+      />
+    </div>
+    <div>
+      <p class="font-bold text-white">{{transaction.title}}</p>
+      <p class="text-xs text-zinc-300">{{transaction.category}}</p>
+    </div>
+  </div>
+  <span class="font-bold text-lg">LKR{{transaction.amount}}</span>
+</div>

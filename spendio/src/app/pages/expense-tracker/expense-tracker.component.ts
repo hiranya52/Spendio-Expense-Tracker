@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { user } from '../../../model/user.model';
 import { transaction } from '../../../model/transaction.model';
+import { TransactionItemComponent } from "../../components/transaction-item/transaction-item.component";
 
 @Component({
   selector: 'app-expense-tracker',
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, TransactionItemComponent],
   templateUrl: './expense-tracker.component.html',
   styleUrl: './expense-tracker.component.css'
 })
@@ -27,9 +28,7 @@ export class ExpenseTrackerComponent {
     this.user = history.state.user;
 
     this.transactionService.getUserTransactions(this.user.email).subscribe(res => {
-
       this.transactionList=res;
-
     })
 
   }
