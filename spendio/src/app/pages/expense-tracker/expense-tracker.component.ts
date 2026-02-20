@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { TransactionService } from './../../service/transaction/transaction.service';
+import { Component, inject } from '@angular/core';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -13,12 +14,15 @@ import { user } from '../../../model/user.model';
 })
 export class ExpenseTrackerComponent {
 
+  private transactionService = inject(TransactionService);
+
   user!: user
 
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.user = history.state.user;
+
 
 
 
