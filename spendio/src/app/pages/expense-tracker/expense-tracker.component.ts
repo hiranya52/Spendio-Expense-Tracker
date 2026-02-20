@@ -3,8 +3,6 @@ import { FooterComponent } from "../../components/footer/footer.component";
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { expense } from '../../../model/expense.model';
-import { TrackerHeaderComponent } from "../../components/tracker-header/tracker-header.component";
 import { user } from '../../../model/user.model';
 
 @Component({
@@ -21,6 +19,9 @@ export class ExpenseTrackerComponent {
 
   ngOnInit() {
     this.user = history.state.user;
+
+
+
   }
 
 
