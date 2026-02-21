@@ -2,8 +2,8 @@ import { ExpenseTrackerComponent } from './../../pages/expense-tracker/expense-t
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
-import { AddExpenseService } from '../../service/addExpense/add-expense.service';
 import { TransactionService } from '../../service/transaction/transaction.service';
+import { ViewService } from '../../service/viewService/view.service';
 
 @Component({
   selector: 'app-add-expense',
@@ -24,10 +24,10 @@ export class AddExpenseComponent{
   addExpForm: FormGroup;
 
   constructor(
-    private addService: AddExpenseService,
+    private addService: ViewService,
     private formBuilder: FormBuilder
   ) {
-    this.addService.isOpen$.subscribe(open => this.isOpen = open);
+    this.addService.isOpen('expense').subscribe(open => this.isOpen = open);
 
     this.addExpForm = formBuilder.group({
       title: [''],
@@ -40,7 +40,7 @@ export class AddExpenseComponent{
   }
 
 onClose() {
-  this.addService.close();
+  this.addService.close('expense');
 }
 
 

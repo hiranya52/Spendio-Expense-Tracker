@@ -125,7 +125,7 @@
             Add Expense
           </button>
 
-          <button
+          <button (click)="openAddIncome()"
             class="flex items-center gap-2 px-6 py-3 text-[#2d283e] border border-ash-purple hover:text-ash-purple bg-zinc-100 hover:bg-black rounded-full font-medium transition-all active:scale-95"
           >
             <span class="material-symbols-outlined text-xl">payments</span>
@@ -230,5 +230,6 @@
 
 <!-- At the bottom of your template, outside main content -->
 <app-add-expense  [userEmail]="user.email"></app-add-expense>
+
 
 

@@ -1,14 +1,13 @@
 import { TransactionService } from './../../service/transaction/transaction.service';
 import { Component, inject, OnInit } from '@angular/core';
-import { FooterComponent } from "../../components/footer/footer.component";
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { user } from '../../../model/user.model';
 import { transaction } from '../../../model/transaction.model';
 import { TransactionItemComponent } from "../../components/transaction-item/transaction-item.component";
-import { AddExpenseService } from '../../service/addExpense/add-expense.service';
 import { AddExpenseComponent } from "../../components/add-expense/add-expense.component";
+import { ViewService } from '../../service/viewService/view.service';
 import { AddIncomeComponent } from "../../components/add-income/add-income.component";
 
 @Component({
@@ -27,9 +26,8 @@ export class ExpenseTrackerComponent implements OnInit{
 
   constructor(
     private router: Router,
-    private addService: AddExpenseService
+    private addService: ViewService
   ) { }
-
 
   ngOnInit(): void {
 
@@ -42,10 +40,12 @@ export class ExpenseTrackerComponent implements OnInit{
 
   }
 
-
-
   openAddExpense() {
-    this.addService.open();
+    this.addService.open('expense');
+  }
+
+  openAddIncome() {
+     this.addService.open('income');
   }
 
 
