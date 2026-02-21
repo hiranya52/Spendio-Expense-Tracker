@@ -1,7 +1,10 @@
+import { transaction } from './../../../model/transaction.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { AddExpenseService } from '../../service/addExpense/add-expense.service';
+import { TransactionService } from '../../service/transaction/transaction.service';
+import { ExpenseTrackerComponent } from '../../pages/expense-tracker/expense-tracker.component';
 
 @Component({
   selector: 'app-add-income',
@@ -11,7 +14,12 @@ import { AddExpenseService } from '../../service/addExpense/add-expense.service'
 })
 export class AddIncomeComponent {
 
+  @Input() email!: string;
+
   addIncomeForm: FormGroup;
+
+  private transactionService = inject(TransactionService);
+  private expenseTracker = inject(ExpenseTrackerComponent);
 
   constructor(
     private addService: AddExpenseService,
@@ -37,7 +45,12 @@ export class AddIncomeComponent {
 
   onSubmit(){
 
-    
+    const transaction = this.addIncomeForm.value;
+
+    this.transactionService.addTransaction(transaction,this.email).subscribe( res => {
+      console.log(res);
+
+    })
 
   }
 

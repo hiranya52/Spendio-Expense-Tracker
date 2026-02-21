@@ -9,10 +9,11 @@ import { transaction } from '../../../model/transaction.model';
 import { TransactionItemComponent } from "../../components/transaction-item/transaction-item.component";
 import { AddExpenseService } from '../../service/addExpense/add-expense.service';
 import { AddExpenseComponent } from "../../components/add-expense/add-expense.component";
+import { AddIncomeComponent } from "../../components/add-income/add-income.component";
 
 @Component({
   selector: 'app-expense-tracker',
-  imports: [CommonModule, FormsModule, RouterLink, TransactionItemComponent, AddExpenseComponent],
+  imports: [CommonModule, FormsModule, RouterLink, TransactionItemComponent, AddExpenseComponent, AddIncomeComponent],
   templateUrl: './expense-tracker.component.html',
   styleUrl: './expense-tracker.component.css'
 })
