@@ -47,6 +47,7 @@ export class AddIncomeComponent {
     this.transactionService.addTransaction(transaction,this.email).subscribe( res => {
       this.expenseTracker.addNewTransaction(res);
       this.onClose();
+      this.expenseTracker.calculateTotalBalance();
     })
 
   }
