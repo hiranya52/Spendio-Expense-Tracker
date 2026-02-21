@@ -34,6 +34,7 @@ export class ExpenseTrackerComponent implements OnInit {
 
     this.transactionService.getUserTransactions(this.user.email).subscribe(res => {
       this.transactionList = res;
+      this.calculateTotalBalance();
     })
 
 
