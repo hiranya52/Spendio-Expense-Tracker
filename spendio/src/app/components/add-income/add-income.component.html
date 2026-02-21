@@ -1,0 +1,66 @@
+<div *ngIf="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity duration-300">
+  <div class="glass glow-effect w-full max-w-[380px] rounded-3xl p-8 text-white text-slate-900">
+    <header class="mb-8 text-center">
+      <h1 class="text-white font-display text-2xl tracking-tight">New Income</h1>
+    </header>
+    <!-- <form class="space-y-5" [formGroup]="addExpForm" (ngSubmit)="onSubmit()"> -->
+      <div class="relative group">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <span class="material-icons-round text-white text-xl">attach_money</span>
+        </div>
+        <input
+          formControlName="amount"
+          class="block w-full pl-11 pr-4 py-3 bg-white/5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-lg font-medium text-white"
+          placeholder="0.00" step="1.00" type="number" />
+      </div>
+      <div class="space-y-1.5">
+        <label
+          class="text-xs uppercase tracking-widest text-white font-semibold ml-1">Description</label>
+        <input
+          formControlName="title"
+          class="block w-full px-4 py-3 bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-white"
+          placeholder="What was this for?" type="text" />
+      </div>
+      <div class="space-y-1.5 text-slate-900 dark:text-white">
+        <label
+          class="text-xs uppercase tracking-widest text-white font-semibold ml-1">Category</label>
+        <div class="relative">
+          <select
+            formControlName="category"
+            class="text-white placeholder-slate-400 block w-full px-4 py-3 bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none appearance-none cursor-pointer">
+            <option class="dark:bg-slate-900" disabled="" selected="" value="">
+              Select Category
+            </option>
+            <option class="dark:bg-slate-900" value="dining">Dining</option>
+            <option class="dark:bg-slate-900" value="shopping">Shopping</option>
+            <option class="dark:bg-slate-900" value="travel">Travel</option>
+            <option class="dark:bg-slate-900" value="bills">Bills</option>
+            <option class="dark:bg-slate-900" value="others">Others</option>
+          </select>
+          <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+            <span class="material-icons-round text-slate-400">expand_more</span>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-1.5">
+        <label class="text-xs uppercase tracking-widest text-white font-semibold ml-1">Date</label>
+        <div class="relative">
+          <input
+            formControlName="date"
+            class="block w-full px-4 py-3 bg-white/5 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-white"
+            type="date" />
+        </div>
+      </div>
+      <div class="pt-4 flex flex-col items-center gap-4">
+        <button
+          class="w-full py-3.5 bg-primary hover:bg-opacity-90 text-white font-semibold rounded-full shadow-lg shadow-primary/20 transition-all active:scale-95"
+          type="submit">
+          Add Expense
+        </button>
+        <button (click)="onClose()" class="text-sm text-white hover:text-slate-700 transition-colors" type="button">
+          Cancel
+        </button>
+      </div>
+    <!-- </form> -->
+  </div>
+</div>
