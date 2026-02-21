@@ -1,66 +1,53 @@
-<!-- Contact Form -->
-    <div class="contact-form">
-      <form action="#" method="post">
-        <div class="form-group">
-          <label for="name">Full Name *</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="John Doe"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email Address *</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="john@example.com"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="+94 77 123 4567"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="subject">Subject *</label>
-          <select id="subject" name="subject" required>
-            <option value="">Select a subject</option>
-            <option value="general">General Inquiry</option>
-            <option value="support">Technical Support</option>
-            <option value="feedback">Feedback</option>
-            <option value="partnership">Partnership</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            placeholder="Tell us how we can help you..."
-          ></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">Send Message</button>
-
-        <input type="checkbox" id="form-submitted" />
-        <div class="success-message">
-          <strong>✓ Success!</strong> Your message has been sent successfully.
-          We'll get back to you soon!
-        </div>
-      </form>
+<div class="rounded-2xl p-[1.5px] border">
+  <div class="glass-morphism p-8 md:p-12 rounded-2xl shadow-2xl relative">
+  <form action="#" class="space-y-6">
+    <div class="grid grid-cols-1 gap-6">
+      <div>
+        <label class="block text-sm font-medium text-ash-purple mb-2" for="full-name">Full Name
+          *</label>
+        <input
+          class="w-full px-4 py-3 bg-black border border-primary/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-white placeholder:text-slate-400"
+          id="full-name" name="full-name" placeholder="John Doe" type="text">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-ash-purple mb-2" for="email">Email Address
+          *</label>
+        <input
+          class="w-full px-4 py-3 bg-black border border-primary/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all dark:text-white placeholder:text-slate-400"
+          id="email" name="email" placeholder="john@example.com" type="email">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-ash-purple mb-2" for="phone">Phone
+          Number</label>
+        <input
+          class="w-full px-4 py-3 bg-black border border-primary/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-white placeholder:text-slate-400"
+          id="phone" name="phone" placeholder="+1 (555) 000-0000" type="tel">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-slate-700 dark:text-ash-purple mb-2" for="subject">Subject
+          *</label>
+        <select
+          class="w-full px-4 py-3 bg-black border border-primary/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-white appearance-none"
+          id="subject" name="subject">
+          <option value="">Select a subject</option>
+          <option value="pricing">Pricing Inquiry</option>
+          <option value="demo">Request a Demo</option>
+          <option value="support">Technical Support</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-ash-purple mb-2" for="message">Message
+          *</label>
+        <textarea
+          class="w-full px-4 py-3 bg-black border border-primary/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-white placeholder:text-slate-400"
+          id="message" name="message" placeholder="Tell us about your needs..." rows="4"></textarea>
+      </div>
     </div>
+    <button
+      class="w-full bg-primary text-white font-bold py-4 rounded-full shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5 transition-all duration-200"
+      type="submit">
+      Send Message
+    </button>
+  </form>
+</div>
