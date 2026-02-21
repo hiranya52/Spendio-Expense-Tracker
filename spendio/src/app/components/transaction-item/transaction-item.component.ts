@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { transaction } from '../../../model/transaction.model';
+import { transaction } from './../../../model/transaction.model';
+import { Component, input, Input } from '@angular/core';
 
 @Component({
   selector: 'app-transaction-item',
@@ -10,6 +10,5 @@ import { transaction } from '../../../model/transaction.model';
 export class TransactionItemComponent {
 
   @Input() transaction!: transaction;
-
 
 }

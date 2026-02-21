@@ -7,7 +7,7 @@ import { TransactionService } from '../../service/transaction/transaction.servic
 
 @Component({
   selector: 'app-add-expense',
-  imports: [CommonModule, NgIf, ReactiveFormsModule, CommonModule],
+  imports: [CommonModule, NgIf, ReactiveFormsModule],
   templateUrl: './add-expense.component.html',
   styleUrl: './add-expense.component.css'
 })
@@ -34,7 +34,7 @@ export class AddExpenseComponent{
       category: [''],
       amount: [''],
       date: [''],
-      type: ['EXPENSE'],
+      type: ['EXPENSE']
     })
 
   }
@@ -52,6 +52,7 @@ onSubmit(){
     this.expenseTracker.addNewTransaction(res);
     this.onClose();
   })
+
 
 }
 

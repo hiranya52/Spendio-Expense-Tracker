@@ -95,7 +95,9 @@
         </button> -->
         <a class="bg-zinc-900 text-white px-6 py-2.5 text-l font-medium border border-white/20 hover:bg-white hover:text-black transition-all rounded-full hidden md:inline-block" routerLink="/">
       Back
-    </a>
+      </a>
+
+
       </div>
     </header>
 
@@ -153,7 +155,9 @@
 
             <div class="space-y-6">
 
-              <app-transaction-item *ngFor="let item of transactionList; let i = index" [transaction]="item"></app-transaction-item>
+              @for (item of transactionList; track $index) {
+                <app-transaction-item [transaction]="item"></app-transaction-item>
+              }
 
             </div>
           </div>

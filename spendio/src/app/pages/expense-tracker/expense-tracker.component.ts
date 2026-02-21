@@ -1,5 +1,5 @@
 import { TransactionService } from './../../service/transaction/transaction.service';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -16,7 +16,7 @@ import { AddExpenseComponent } from "../../components/add-expense/add-expense.co
   templateUrl: './expense-tracker.component.html',
   styleUrl: './expense-tracker.component.css'
 })
-export class ExpenseTrackerComponent {
+export class ExpenseTrackerComponent implements OnInit{
 
   private transactionService = inject(TransactionService);
 
@@ -29,14 +29,19 @@ export class ExpenseTrackerComponent {
     private addService: AddExpenseService
   ) { }
 
-  ngOnInit() {
+
+  ngOnInit(): void {
+
     this.user = history.state.user;
 
-    this.transactionService.getUserTransactions(this.user.email).subscribe(res => {
-      this.transactionList = res;
+    this.transactionService.getUserTransactions(this.user.email).subscribe( res => {
+      this.transactionList=res;
     })
 
+
   }
+
+
 
   openAddExpense() {
     this.addService.open();
