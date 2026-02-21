@@ -43,7 +43,8 @@ export class ExpenseTrackerComponent implements OnInit {
       .subscribe((res) => {
         this.transactionList = res;
         this.calculateTotalBalance();
-        this.groupTransactionsByDate();
+        // this.groupTransactionsByDate();
+        this.calculateCurrentMonthExpenses();
       });
   }
 
@@ -95,6 +96,31 @@ export class ExpenseTrackerComponent implements OnInit {
       });
     }
   }
+
+  calculateCurrentMonthExpenses(): number {
+  const today = new Date();
+  const currentMonth = today.getMonth(); // 0 = Jan
+  const currentYear = today.getFullYear();
+
+  let total = 0;
+
+  for (let i = 0; i < this.transactionList.length; i++) {
+    const t = this.transactionList[i];
+    const txDate = new Date(t.date);
+
+    // Only expenses in the current month
+    if (
+      t.type === 'EXPENSE' &&
+      txDate.getMonth() === currentMonth &&
+      txDate.getFullYear() === currentYear
+    ) {
+      total += t.amount;
+    }
+  }
+
+  return total;
+}
+
   openAddExpense() {
     this.addService.open('expense');
   }
