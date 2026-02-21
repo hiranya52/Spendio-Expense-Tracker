@@ -16,7 +16,7 @@ import { AddIncomeComponent } from "../../components/add-income/add-income.compo
   templateUrl: './expense-tracker.component.html',
   styleUrl: './expense-tracker.component.css'
 })
-export class ExpenseTrackerComponent implements OnInit{
+export class ExpenseTrackerComponent implements OnInit {
 
   private transactionService = inject(TransactionService);
   user!: user
@@ -32,8 +32,8 @@ export class ExpenseTrackerComponent implements OnInit{
 
     this.user = history.state.user;
 
-    this.transactionService.getUserTransactions(this.user.email).subscribe( res => {
-      this.transactionList=res;
+    this.transactionService.getUserTransactions(this.user.email).subscribe(res => {
+      this.transactionList = res;
     })
 
 
@@ -44,17 +44,26 @@ export class ExpenseTrackerComponent implements OnInit{
   }
 
   openAddIncome() {
-     this.addService.open('income');
+    this.addService.open('income');
   }
 
 
-  addNewTransaction(transac: transaction){
+  addNewTransaction(transac: transaction) {
     this.transactionList.push(transac);
   }
 
-  calculateTotalBalance(){
+  calculateTotalBalance() {
 
-    
+    for (var i = 0; i < this.transactionList.length; i++) {
+
+      var t = this.transactionList[i];
+      if (t.type === 'INCOME') {
+        this.totalBalance = this.totalBalance + t.amount;
+      } else if (t.type === 'EXPENSE') {
+        this.totalBalance = this.totalBalance - t.amount;
+      }
+    }
+    this.totalBalance = this.totalBalance;
 
   }
 
