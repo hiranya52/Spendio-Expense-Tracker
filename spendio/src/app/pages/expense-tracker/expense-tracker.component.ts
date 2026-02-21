@@ -19,10 +19,9 @@ import { AddIncomeComponent } from "../../components/add-income/add-income.compo
 export class ExpenseTrackerComponent implements OnInit{
 
   private transactionService = inject(TransactionService);
-
   user!: user
-
   transactionList: transaction[] = [];
+  totalBalance: number = 0;
 
   constructor(
     private router: Router,
@@ -51,6 +50,12 @@ export class ExpenseTrackerComponent implements OnInit{
 
   addNewTransaction(transac: transaction){
     this.transactionList.push(transac);
+  }
+
+  calculateTotalBalance(){
+
+    
+
   }
 
 
