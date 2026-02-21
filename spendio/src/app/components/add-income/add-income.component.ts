@@ -15,8 +15,8 @@ import { ExpenseTrackerComponent } from '../../pages/expense-tracker/expense-tra
 export class AddIncomeComponent {
 
   @Input() email!: string;
-
   addIncomeForm: FormGroup;
+  isOpen = false;
 
   private transactionService = inject(TransactionService);
   private expenseTracker = inject(ExpenseTrackerComponent);
@@ -37,10 +37,8 @@ export class AddIncomeComponent {
 
   }
 
-  isOpen = false;
-
   onClose() {
-  this.addService.close();
+    this.addService.close();
   }
 
   onSubmit(){
@@ -48,8 +46,8 @@ export class AddIncomeComponent {
     const transaction = this.addIncomeForm.value;
 
     this.transactionService.addTransaction(transaction,this.email).subscribe( res => {
-      console.log(res);
-
+      this.expenseTracker.addNewTransaction(res);
+      this.onClose();
     })
 
   }
