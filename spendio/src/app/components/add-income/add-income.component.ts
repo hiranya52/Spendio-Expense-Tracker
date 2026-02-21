@@ -19,17 +19,8 @@ export class AddIncomeComponent {
     private formBuilder: FormBuilder
   ){
     this.addService.isOpen$.subscribe(open => this.isOpen = open);
-
-    this.addIncomeForm = formBuilder.group({
-      title: [''],
-      category: [''],
-      amount: [''],
-      date: [''],
-      type: ['INCOME']
-    })
-
   }
-
+  
   isOpen = false;
 
   onClose() {
