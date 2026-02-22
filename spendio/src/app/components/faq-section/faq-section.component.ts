@@ -4,8 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-faq-section',
   imports: [],
   templateUrl: './faq-section.component.html',
-  styleUrl: './faq-section.component.css'
+  styleUrl: './faq-section.component.css',
 })
 export class FaqSectionComponent {
+  activeIndex: number | null = null;
 
+toggleAccordion(index: number) {
+  this.activeIndex = this.activeIndex === index ? null : index;
+}
 }
