@@ -1,0 +1,20 @@
+<div class="flex items-center justify-between group cursor-pointer mt-2 border border-slate-600 p-3 rounded-xl">
+  <div class="flex items-center gap-4">
+    <div
+      class="w-12 h-12 bg-zinc-100 dark:bg-zinc-800 rounded-2xl flex items-center justify-center"
+    >
+      <img
+        alt="Starbucks"
+        class="w-6 h-6 group-hover:grayscale-0 transition-all"
+        src="transaction.png"
+      />
+    </div>
+    <div>
+      <p class="font-bold text-white">{{transaction.title}}</p>
+      <p class="text-xs text-zinc-300">{{transaction.category}}</p>
+    </div>
+  </div>
+  <span class="font-bold text-lg">LKR{{transaction.amount}}</span>
+</div>
+
+

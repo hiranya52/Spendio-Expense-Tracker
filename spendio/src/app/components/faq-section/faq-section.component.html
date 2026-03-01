@@ -1,0 +1,140 @@
+<div class="flex-grow relative z-10 flex flex-col items-center justify-center px-6 py-20">
+
+  <div class="max-w-3xl w-full text-center mb-16">
+    <h1 class="font-display text-5xl md:text-6xl text-white mb-6">
+      Frequently Asked Questions
+    </h1>
+    <p class="text-slate-400 text-lg">
+      Have questions about Spendio? We've compiled a list of the most common inquiries to help you get started on your financial journey.
+    </p>
+  </div>
+
+  <div class="max-w-3xl w-full space-y-4">
+
+    <!-- Item 1 -->
+    <div class="accordion-item" [class.active]="activeIndex === 0">
+
+      <button
+        class="w-full text-left glass-card p-6 rounded-2xl flex justify-between items-center"
+        (click)="toggleAccordion(0)">
+
+        <span class="text-lg font-medium text-white">
+          What is Spendio?
+        </span>
+
+        <span
+          class="material-icons-round arrow-icon transition-transform duration-300 text-slate-400">
+          expand_more
+        </span>
+
+      </button>
+
+      <div class="accordion-content px-6">
+        <p class="text-slate-400 leading-relaxed pb-6">
+          Spendio is a premium expense tracking platform designed to give you complete clarity over your financial life. We combine powerful automation with intuitive design to help you save more and spend smarter.
+        </p>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="accordion-item" [class.active]="activeIndex === 1">
+
+      <button
+        class="w-full text-left glass-card p-6 rounded-2xl flex justify-between items-center"
+        (click)="toggleAccordion(1)">
+
+        <span class="text-lg font-medium text-white">
+          Is Spendio free to use?
+        </span>
+
+        <span
+          class="material-icons-round arrow-icon transition-transform duration-300 text-slate-400">
+          expand_more
+        </span>
+
+      </button>
+
+      <div class="accordion-content px-6">
+        <p class="text-slate-400 leading-relaxed pb-6">
+          We offer a robust free tier for personal use. For power users who need advanced reporting, multi-currency support, and team collaboration features, we offer a Pro subscription.
+        </p>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="accordion-item" [class.active]="activeIndex === 2">
+
+      <button
+        class="w-full text-left glass-card p-6 rounded-2xl flex justify-between items-center"
+        (click)="toggleAccordion(2)">
+
+        <span class="text-lg font-medium text-white">
+          How secure is my financial data?
+        </span>
+
+        <span
+          class="material-icons-round arrow-icon transition-transform duration-300 text-slate-400">
+          expand_more
+        </span>
+
+      </button>
+
+      <div class="accordion-content px-6">
+        <p class="text-slate-400 leading-relaxed pb-6">
+          Security is our top priority. We use bank-grade 256-bit encryption and never store your actual bank credentials. Your data is strictly yours, and we never sell it to third parties.
+        </p>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="accordion-item" [class.active]="activeIndex === 3">
+
+      <button
+        class="w-full text-left glass-card p-6 rounded-2xl flex justify-between items-center"
+        (click)="toggleAccordion(3)">
+
+        <span class="text-lg font-medium text-white">
+          Can I access Spendio on multiple devices?
+        </span>
+
+        <span
+          class="material-icons-round arrow-icon transition-transform duration-300 text-slate-400">
+          expand_more
+        </span>
+
+      </button>
+
+      <div class="accordion-content px-6">
+        <p class="text-slate-400 leading-relaxed pb-6">
+          Yes! Spendio syncs seamlessly across your smartphone, tablet, and desktop. Your data is always up to date, no matter where you're tracking from.
+        </p>
+      </div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="accordion-item" [class.active]="activeIndex === 4">
+
+      <button
+        class="w-full text-left glass-card p-6 rounded-2xl flex justify-between items-center"
+        (click)="toggleAccordion(4)">
+
+        <span class="text-lg font-medium text-white">
+          How do I get started?
+        </span>
+
+        <span
+          class="material-icons-round arrow-icon transition-transform duration-300 text-slate-400">
+          expand_more
+        </span>
+
+      </button>
+
+      <div class="accordion-content px-6">
+        <p class="text-slate-400 leading-relaxed pb-6">
+          Getting started is easy. Just click the "Start Now" button in the footer or "Login" in the header to create your account. You can have your first budget set up in under two minutes.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>

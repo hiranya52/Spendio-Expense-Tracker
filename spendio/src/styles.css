@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+.grainy-texture {
+  background-image: url(/main-Img.jpg);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.abstract-gradient {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+
